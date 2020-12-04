@@ -1,0 +1,48 @@
+[Project]
+Assembler=Masm
+Type=Win32 App (no res)
+Description=file-hex
+Backup=$P\Bak\
+Group=1
+GroupExpand=1
+[Files]
+1=file-hex.Asm
+2=file-hex.Inc
+[MakeFiles]
+0=file-hex.rap
+1=file-hex.rc
+2=file-hex.asm
+3=file-hex.obj
+4=file-hex.res
+5=file-hex.exe
+6=file-hex.def
+7=file-hex.dll
+8=file-hex.txt
+9=file-hex.lib
+10=file-hex.mak
+11=file-hex.hla
+12=file-hex.com
+13=file-hex.ocx
+14=file-hex.idl
+15=file-hex.tlb
+[MakeDef]
+Menu=0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0
+1=4,O,$B\RC.EXE /v,1
+2=3,O,$B\ML.EXE /c /coff /Cp /nologo /I"$I",2
+3=5,O,$B\LINK.EXE /SUBSYSTEM:WINDOWS /RELEASE /VERSION:4.0 /LIBPATH:"$L" /OUT:"$5",3
+4=0,0,,5
+5=rsrc.obj,O,$B\CVTRES.EXE,rsrc.res
+6=*.obj,O,$B\ML.EXE /c /coff /Cp /nologo /I"$I",*.asm
+7=0,0,"$E\OllyDbg",5
+[Resource]
+[StringTable]
+[Accel]
+[VerInf]
+[Group]
+Group=Added files,Assembly,Resources,Misc,Modules
+1=2
+2=2
+[AutoLoad]
+AutoLoad=
+[RADebugBP]
+1=
